@@ -1,1 +1,2 @@
-# Areeba-Saleem22.github.io
+# Web-Project
+A university web project for SEO purpose.
