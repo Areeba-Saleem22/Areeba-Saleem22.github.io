@@ -243,7 +243,8 @@ body {
 }
 
 #product1 .pro {
-  width: 250px;
+  position: relative;
+  width: 300px;
   padding: 10px 12px;
   border: 1px solid #cce7d0;
   border-radius: 25px;
@@ -251,7 +252,6 @@ body {
   box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02);
   margin: 15px 0;
   transition: 0.2s ease;
-  position: relative;
 }
 
 #product1 .pro:hover {
@@ -264,9 +264,28 @@ body {
   border-radius: 20px;
 }
 
+/* Hide details by default */
 #product1 .pro .des {
-  text-align: start;
-  padding: 10px 0;
+  display: none;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.3s ease;
+  z-index: 1; /* Ensure details appear above other content */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ffffff;
+  padding: 20px;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+
+/* Show details when hovering over the product */
+#product1 .pro:hover .des {
+  display: block;
+  max-height: 200px;
+  overflow: auto;
 }
 
 #product1 .pro .des span {
@@ -293,6 +312,9 @@ body {
 }
 
 #product1 .pro .cart {
+  position: absolute;
+  bottom: 20px;
+  right: 10px;
   width: 40px;
   height: 40px;
   line-height: 40px;
@@ -301,19 +323,16 @@ body {
   font-weight: bold;
   color: #088178;
   border: 1px solid #088178;
-  position: absolute;
-  bottom: 20px;
-  right: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* Center the icon vertically */
+  z-index: 2; /* Ensure button appears above details */
 }
 
 #product1 .pro .cart i {
-  /* Add styles for the icon here */
-  font-size: 20px; /* Adjust the size of the icon as needed */
+  font-size: 20px;
 }
+
 
 #banner {
   display: flex;
